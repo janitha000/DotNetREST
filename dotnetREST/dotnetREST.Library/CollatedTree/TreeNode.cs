@@ -7,13 +7,12 @@ namespace dotnetREST.Library.CollatedTree
 {
     public class TreeNode : IDisposable
     {
-        private readonly List<PrintJob> _printJobs;
 
         private TreeNode _Parent;
         private TreeNodeList _Children;
-        private T _Value;
+        private string _Value;
 
-        public TreeNode(T Value)
+        public TreeNode(string Value)
         {
             this.Value = Value;
             Parent = null;
@@ -21,26 +20,26 @@ namespace dotnetREST.Library.CollatedTree
         }
 
 
-        public TreeNode Parent
-        {
-            get { return _Parent; }
-            set
-            {
-                if (value == _Parent)
-                {
-                    return;
-                }
-                if (_Parent != null)
-                {
-                    _Parent.Children.Remove(this);
-                }
-                if (value != null && !value.Children.Contains(this))
-                {
-                    value.Children.Add(this);
-                }
-                _Parent = value;
-            }
-        }
+        //public TreeNode Parent
+        //{
+        //    get { return _Parent; }
+        //    set
+        //    {
+        //        if (value == _Parent)
+        //        {
+        //            return;
+        //        }
+        //        if (_Parent != null)
+        //        {
+        //            _Parent.Children.Remove(this);
+        //        }
+        //        if (value != null && !value.Children.Contains(this))
+        //        {
+        //            value.Children.Add(this);
+        //        }
+        //        _Parent = value;
+        //    }
+        //}
 
 
         public TreeNodeList Children
@@ -50,7 +49,7 @@ namespace dotnetREST.Library.CollatedTree
         }
 
 
-        public T Value
+        public string Value
         {
             get { return _Value; }
             set

@@ -1,27 +1,34 @@
-﻿using System;
+﻿using dotnetREST.Library.Entities;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace dotnetREST.Library.CollatedTree
 {
-    public class TreeNodeList : List<TreeNode>
+    public class TreeNodeList 
     {
         public TreeNode Parent;
+        private Dictionary<int, List<PrintJob>> _printjobs;
+
         public TreeNodeList(TreeNode Parent)
         {
             this.Parent = Parent;
+            _printjobs = new Dictionary<int, List<PrintJob>>();
         }
 
-        public new TreeNode Add(TreeNode Node)
+        public new List<PrintJob>  Add(int key, List<PrintJob> printJobs)
         {
-            base.Add(Node);
-            Node.Parent = Parent;
-            return Node;
+            _printjobs.Add(key, printJobs);
+            //Node.Parent = Parent;
+            return printJobs;
         }
 
-        public TreeNode Add(T Value)
+        public void AddValue(int key, PrintJob printJob)
         {
-            return Add(new TreeNode(Value));
+            _printjobs.TryGetValue(key, out List<PrintJob> list);
+            list.Add(printJob);
+
+            _printjobs[key] = list;
         }
     }
 }
