@@ -15,7 +15,6 @@ namespace dotnetREST.Library.CollatedTree
         public TreeNode(string Value)
         {
             this.Value = Value;
-            Parent = null;
             Children = new TreeNodeList(this);
         }
 
