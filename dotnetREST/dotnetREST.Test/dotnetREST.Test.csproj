@@ -71,6 +71,10 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <ProjectReference Include="..\dotnetREST.Data\dotnetREST.Data.csproj">
+      <Project>{c3e9352a-646c-43db-af97-22abf1d84b48}</Project>
+      <Name>dotnetREST.Data</Name>
+    </ProjectReference>
     <ProjectReference Include="..\dotnetREST.Library\dotnetREST.Library.csproj">
       <Project>{a31ecb24-9244-48af-9cd0-5bbf8372ff29}</Project>
       <Name>dotnetREST.Library</Name>
